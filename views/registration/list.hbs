@@ -1,0 +1,31 @@
+<h3><a href="/registration" class="btn btn-secondary"><i class="fa fa-plus"></i> Create new </a> List of all the users</h3>
+<table class="table table-striper">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.mobileNumber}}</td>
+            <td>{{this.userName}}</td>
+            <td>{{this.password}}</td>
+            <td>
+                <a href="/registration/{{this._id}}"><i class="fa fa-pencil-alt fa-lg" aria-hidden="true"></i></a>
+            </td>
+            <td>
+                <a class="fa fa-trash fa -lg" aria-hidden="true"></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

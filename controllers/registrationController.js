@@ -24,15 +24,35 @@ function inserRecord(req, res){
     regUser.save((err, doc) => {
         if (!err){
             console.log('Added User :'+doc);
-            res.redirect('registration/mainpage');
+            res.redirect('registration/list');
         }
         else
             console.log('error during record addition : ' + err);
     });
 }
 
-router.get('/mainpage', (req, res) => {
-    res.json('Hello there');
+router.get('/list', (req, res) => {
+    registration.find((err, docs) => {
+        if (!err){
+            res.render("registration/list", {
+                list: docs
+            });
+        }
+        else
+            console.log('error in getting the values');
+    });
+});
+
+router.get('/:id', (req, res) => {
+    registration.findById(req.param.id, (err, doc) => {
+        if(!err){
+            res.render("registration/addOredit", {
+                viewTitle: "Update User Details",
+                registration : doc
+                
+            });
+        }
+    });
 });
 
 module.exports = router;

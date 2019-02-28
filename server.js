@@ -37,7 +37,7 @@ app.set('view engine', 'hbs');
 
 //starting the express with the port number and callback function
 app.listen(4000, () => {
-    console.log('Express server started at port : 3000');
+    console.log('Express server started at port : 4000');
 });
 //configure for registrationController
 app.use('/registration', registrationController);
