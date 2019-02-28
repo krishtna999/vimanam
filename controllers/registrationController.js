@@ -28,7 +28,6 @@ function inserRecord(req, res){
         regUser.save((err, doc) => {
             if (!err){
                 console.log('Added User :'+doc);
-                
                 res.redirect('registration/list');
             }
             else
