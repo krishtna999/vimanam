@@ -1,0 +1,38 @@
+<h3><a href="/coupon/add" class="btn btn-secondary"><i class="fa fa-plus"></i> Create new </a> List of all the Coupons</h3>
+<table class="table table-striper">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>validFrom</th>
+            <th>validTill</th>
+            <th>Remaining Coupons</th>
+            <th>Discount</th>
+            <th>minAmount</th>
+            <th>maxCashback</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.code}}</td>
+            <td>{{this.validFrom}}</td>
+            <td>{{this.validTill}}</td>
+            <td>{{this.available}}</td>
+            <td>{{this.discount}}</td>
+            <td>{{this.minAmount}}</td>
+            <td>{{this.maxCashback}}</td>
+            <form action="/coupon/spend/{{this.code}}" method="POST">
+            <td>
+                {{!-- <a href="/coupon/use/{{this.code}}"> --}}
+                <button class="btn btn-info" type="submit"><i class="fa fa-money-bill-alt fa-lg" aria-hidden="true"></i></button>
+            </td>
+            <td>
+                <input type="number" name="amount" style="width: 5em" required>
+            </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

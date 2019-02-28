@@ -1,8 +1,10 @@
 require('./models/db');
 
 
-//requestin registration controller
+//requesting the controllers
 const registrationController = require('./controllers/registrationController');
+var couponController=require('./controllers/couponController.js')
+
 
 //request express
 const express = require('express');
@@ -32,12 +34,10 @@ app.set('view engine', 'hbs');
 
 
 
-
-
-
 //starting the express with the port number and callback function
 app.listen(4000, () => {
     console.log('Express server started at port : 4000');
 });
-//configure for registrationController
+//configure for the Controllers
 app.use('/registration', registrationController);
+app.use('/coupon',couponController);

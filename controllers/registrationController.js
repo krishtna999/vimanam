@@ -17,17 +17,22 @@ function inserRecord(req, res){
     var regUser = new registration();
     regUser.fullName = req.body.fullName;
     regUser.email = req.body.email;
+    // console.log(regUser.email);
     regUser.mobileNumber = req.body.mobileNumber;
     regUser.userName = req.body.userName;
     regUser.password = req.body.password;
-
-    regUser.save((err, doc) => {
-        if (!err){
-            console.log('Added User :'+doc);
-            res.redirect('registration/list');
-        }
-        else
-            console.log('error during record addition : ' + err);
+    registration.deleteOne({email:regUser.email},function(err){
+        // if(err){
+        //     console.log(err)
+        // }
+        regUser.save((err, doc) => {
+            if (!err){
+                console.log('Added User :'+doc);
+                res.redirect('registration/list');
+            }
+            else
+                console.log('error during record addition : ' + err);
+        });
     });
 }
 
@@ -44,12 +49,11 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    registration.findById(req.param.id, (err, doc) => {
+    registration.findById(req.params.id, (err, doc) => {
         if(!err){
             res.render("registration/addOredit", {
                 viewTitle: "Update User Details",
-                registration : doc
-                
+                registration : doc            
             });
         }
     });
