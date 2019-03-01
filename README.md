@@ -4,4 +4,4 @@ Members : Balaji Bharatwaj M,
           Bhavana K,
           Murali Krishtna,
           Harika Reddy,
-          Saipriya Nimmagadda
+          Saipriyan  Nimmagadda
