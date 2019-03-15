@@ -36,25 +36,25 @@ router.route('/add')
     })
 });
 
-router.post('/spend/:code', function (req, res) {
-    code=req.params.code;
-    console.log('code:'+code)
-    amount=req.body.amount;
-    couponModel.findOne({code:code},function(err,doc){
-        if(err){
-            return console.error(err);
-        }
-        console.log(doc)
-        revisedPrice=doc.use(amount);
-        /*
-        -1 Lesser than minAmount
-        -2 Date expired
-        -3 No More coupons
-        */
-        console.log(amount,revisedPrice);
-        res.redirect('/coupon');
-    });
-    // res.send('spending Coupon')
-});
+// router.post('/spend/:code', function (req, res) {
+//     code=req.params.code;
+//     console.log('code:'+code)
+//     amount=req.body.amount;
+//     couponModel.findOne({code:code},function(err,doc){
+//         if(err){
+//             return console.error(err);
+//         }
+//         console.log(doc)
+//         revisedPrice=doc.use(amount);
+//         /*
+//         -1 Lesser than minAmount
+//         -2 Date expired
+//         -3 No More coupons
+//         */
+//         console.log(amount,revisedPrice);
+//         res.redirect('/coupon');
+//     });
+//     // res.send('spending Coupon')
+// });
 
 module.exports = router;

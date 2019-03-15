@@ -25,8 +25,8 @@ couponSchema.methods.use=function(amount){
         return -1;
     }
     currDate=new Date()
-    console.log(currDate>this.validTill,this.validFrom)
-    if(currDate>this.validTill && currDate<this.validFrom){
+    console.log(currDate>this.validTill || currDate<this.validFrom,this.validFrom)
+    if(currDate>this.validTill || currDate<this.validFrom){
         return -2;
     }
     if(this.available<=0){

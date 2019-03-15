@@ -23,7 +23,7 @@
             <td>{{this.discount}}</td>
             <td>{{this.minAmount}}</td>
             <td>{{this.maxCashback}}</td>
-            <form action="/coupon/spend/{{this.code}}" method="POST">
+            <form action="payment/{{this.code}}" method="POST">
             <td>
                 {{!-- <a href="/coupon/use/{{this.code}}"> --}}
                 <button class="btn btn-info" type="submit"><i class="fa fa-money-bill-alt fa-lg" aria-hidden="true"></i></button>

@@ -2,13 +2,16 @@ require('./models/db');
 
 
 //requesting the controllers
+
 const registrationController = require('./controllers/registrationController');
 var couponController=require('./controllers/couponController.js')
-
+var paymentController=require('./controllers/paymentController.js')
 
 //request express
 const express = require('express');
 var app = express();
+
+app.use(express.static(__dirname + '/public')); //Serves resources from public folder
 
 //requesting express-handlebars
 const exphbs = require('express-handlebars');
@@ -41,3 +44,4 @@ app.listen(4000, () => {
 //configure for the Controllers
 app.use('/registration', registrationController);
 app.use('/coupon',couponController);
+app.use('/payment',paymentController);
